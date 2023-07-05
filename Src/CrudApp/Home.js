@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useIsFocused } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import EditScreen from './EditScreen';
+
 
 import {
     responsiveHeight,
@@ -100,7 +100,7 @@ const Home = ({ navigation }) => {
 
 
     return (
-        <View style={{ height: responsiveHeight(100), width: responsiveWidth(100), paddingTop: responsiveHeight(3), backgroundColor: '#dff9fb' }}>
+        <View style={{ height: responsiveHeight(100), width: responsiveWidth(100), paddingTop: responsiveHeight(3), backgroundColor: '#dff9fb', paddingBottom: responsiveHeight(12) }}>
             <StatusBar backgroundColor={'#dff9fb'} barStyle={'dark-content'} />
             {/* {getError ? <Text>this is error</Text> : <Text>heelo</Text>} */}
             {/* <Text style={{ fontSize: responsiveFontSize(4), marginLeft: 10, textAlign: 'center', color: 'red' }}>CRUD APPLICATION</Text>
@@ -133,12 +133,14 @@ const Home = ({ navigation }) => {
                     : (<View>
 
 
-                        <ScrollView>
+                        <ScrollView
+                            showsVerticalScrollIndicator={false}
+                        >
                             {data.length ?
                                 data.map((item, index) => <View key={index} style={styles.listContainer}>
-                                    <Text style={{ flex: 0.4, fontSize: responsiveFontSize(1.8), padding: 5, color: '#636e72' }}>{item.name}</Text>
-                                    <Text style={{ flex: 0.9, fontSize: responsiveFontSize(1.8), padding: 5, color: '#636e72' }}>{item.phone}</Text>
-                                    <Text style={{ flex: 1, fontSize: responsiveFontSize(1.8), padding: 5, color: '#636e72' }}>{item.email}</Text>
+                                    <Text style={{ flex: 0.5, fontSize: responsiveFontSize(1.8), padding: 5, color: '#636e72' }}>{item.name}</Text>
+                                    <Text style={{ flex: 0.8, fontSize: responsiveFontSize(1.8), padding: 5, color: '#636e72', textAlign: 'center' }}>{item.phone}</Text>
+                                    <Text style={{ flex: 1, fontSize: responsiveFontSize(1.4), padding: 5, color: '#636e72' }}>{item.email}</Text>
                                     <TouchableOpacity style={{ marginRight: 10 }} onPress={() => onUpdateBtnClick(item)} >
                                         <Text><FontAwesome name='edit' color={'green'} size={25} style={{ padding: 5 }} /></Text>
                                     </TouchableOpacity>
@@ -188,7 +190,7 @@ const Home = ({ navigation }) => {
                 </View>
 
             </Modal>
-        </View >
+        </View>
     )
 }
 
@@ -208,13 +210,14 @@ const styles = StyleSheet.create({
 
     },
     container: {
-        backgroundColor: '#dff9fb',
+        backgroundColor: 'white',
 
-        width: 400,
-        height: 400,
-        marginTop: 250,
+        width: responsiveWidth(95),
+        height: responsiveHeight(50),
+        marginTop: responsiveHeight(40),
         marginLeft: 16,
-        borderRadius: 20
+        borderRadius: 20,
+        elevation: 20
     },
     closeBtn: {
         marginTop: 10,

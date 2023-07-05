@@ -6,8 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // screens
 import Home from './Home';
 import Create from './Create';
-import Update from './Update';
-import EditScreen from './EditScreen';
+
 
 
 
@@ -19,7 +18,7 @@ const NavigationCon = () => {
             <Stack.Navigator>
                 <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name='Create' component={Create} options={{ headerShown: false }} />
-                {/* <Stack.Screen name='Update' component={Update} /> */}
+               
 
             </Stack.Navigator>
         </NavigationContainer>
